@@ -1,6 +1,7 @@
 # Symbiotic Programming Index (SPI)
 
 **From Coding to Symbiosis: Redefining Software Engineering in the Age of AI**
+**[`Online Doc`](https://aipapacha.github.io/symbiotic-programming-index/)**
 
 ---
 
@@ -26,7 +27,7 @@ Together, these dimensions provide a **quantitative lens** for the shift from pr
 With modern LLMs producing entire modules and pipelines, the developer’s role is moving from line-by-line authorship to **orchestrating** prompts, agents, and validators.
 SPI turns that shift into **reproducible measurement** — so teams, educators, and researchers can **test, teach, and trust** AI-assisted programming.
 
-For a deeper narrative and methods: see **[`/docs/index.md`](./docs/index.md)**.
+For a deeper narrative and methods: see **[`/docs/index.md`](./docs/index.md)**, or the doc page **[`Online Doc`](https://aipapacha.github.io/symbiotic-programming-index/)**
 
 ---
 
