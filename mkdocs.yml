@@ -5,6 +5,7 @@ site_url: https://AIPaPaCha.github.io/symbiotic-programming-index
 repo_url: https://github.com/AIPaPaCha/symbiotic-programming-index
 repo_name: AIPaPaCha/symbiotic-programming-index
 
+
 theme:
   name: material
   language: en
