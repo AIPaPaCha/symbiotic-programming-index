@@ -1,0 +1,38 @@
+site_name: Symbiotic Programming Index (SPI) Lab Notebook
+site_description: Open lab notebook for measuring human–AI coding workflows
+site_author: Charles Li
+site_url: https://AIPaPaCha.github.io/symbiotic-programming-index
+repo_url: https://github.com/AIPaPaCha/symbiotic-programming-index
+repo_name: AIPaPaCha/symbiotic-programming-index
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.tasklist
+  - pymdownx.superfences
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
