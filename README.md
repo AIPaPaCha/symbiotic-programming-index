@@ -26,7 +26,7 @@ Together, these dimensions provide a **quantitative lens** for the shift from pr
 With modern LLMs producing entire modules and pipelines, the developer’s role is moving from line-by-line authorship to **orchestrating** prompts, agents, and validators.
 SPI turns that shift into **reproducible measurement** — so teams, educators, and researchers can **test, teach, and trust** AI-assisted programming.
 
-For a deeper narrative and methods: see **[`/docs/en/index.md`](./docs/index.md)**.
+For a deeper narrative and methods: see **[`/docs/index.md`](./docs/index.md)**.
 
 ---
 
@@ -59,10 +59,7 @@ Rule of thumb:
 
 **Quick links**
 
-* Start here → [`/docs/en/index.md`](./docs/en/index.md)
-* Draft snapshot → [`/docs/en/v0_1.md`](./docs/en/v0_1.md)
-* Experiments → [`/docs/en/experiments/`](./docs/en/experiments/)
-* Datasets → [`/docs/en/datasets/`](./docs/en/datasets/)
+* Start here → [`/docs/index.md`](./docs/index.md)
 
 ---
 
@@ -123,7 +120,7 @@ This dual license lets **code be freely reused**, while keeping **research docum
 
 For collaboration or inquiries:
 
-* **Author**: Charles Li Mingqian
+* **Author**: Charles Li
 * **Email**: [charles\_lmq@outlook.com](mailto:charles_lmq@outlook.com)
 
 ---
