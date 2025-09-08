@@ -1,5 +1,24 @@
 # Symbiotic Programming Index (SPI)
 
+## 👉 Why SPI is Inevitable
+
+The Symbiotic Programming Index (SPI) is not about inflating the value of a research idea. Its necessity comes from objective trends that the industry cannot avoid:
+
+1. **Inevitable Competition of Claims**
+   In five years, every vendor will say: *“My AI coding workflow is the best, my IDE is the best, my coding agent is the best.”*
+   Without a reproducible yardstick, these claims will remain marketing noise. SPI exists to turn “best” into something measurable.
+
+2. **Educational and Professional Demand**
+   Future curricula cannot stop at teaching syntax or casual prompt tricks.
+   Students will need to learn orchestration, reproducibility, and explainability as core competencies. SPI provides the metrics that define what “competence” means in an AI–human workflow.
+
+3. **Governance and Trust in Critical Domains**
+   In healthcare, aviation, or finance, no one will trust a workflow just because a vendor says so.
+   Certification will be required — just like ISO standards today. SPI is positioned as the certification framework for AI coding workflows: quality (Qc), human-off ratio (HoR), explainability (Exp), and stability (Stb).
+
+**In short:**
+SPI is not optional. It is the measuring instrument that industry, education, and governance will all require once AI coding moves from experimentation to infrastructure.
+
 ---
 
 ## 🌍 Background & Motivation
