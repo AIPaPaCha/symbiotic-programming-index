@@ -106,7 +106,7 @@ The **weights ($w_i$)** are adjustable depending on context:
 This repository is structured to provide both **narrative** and **methodology**:
 
 - **Drafts and Licenses**
-  - [v0.1 Draft](./v0_1.md) — snapshot of the original proposal
+  - [v0.1 Draft](./v_01.md) — snapshot of the original proposal
   - [License](./license.md) — sharing and citation rules
 
 - **Dimensions**
@@ -116,20 +116,12 @@ This repository is structured to provide both **narrative** and **methodology**:
   - [Stability (Stb)](./stb/index.md)
   - [Natural Language Engagement (NLE)](./nle/index.md)
 
-- **Datasets**
-  - [Overview](./datasets/index.md) — types of logs and traces
-  - [Schema](./datasets/schema.md) — data model
-  - [Governance](./datasets/governance.md) — ethics and de-identification
-
-- **Experiments**
-  - [Protocols](./experiments/protocols.md) — reproducible designs
-  - [Results](./experiments/results.md) — summaries and snapshots
 
 ---
 
 ## Quick navigation
 
-- **Getting started** → Begin with the [v0.1 Draft](./v0_1.md)  
+- **Getting started** → Begin with the [v0.1 Draft](./v_01.md)  
 - **Research details** → Dive into [Methodology](./qc/methodology.md) and other dimension folders  
 - **Community use** → Cite SPI, contribute references, or use datasets under the [License](./license.md)
 
