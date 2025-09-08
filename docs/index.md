@@ -85,7 +85,7 @@ $$
 \text{s.t. } \sum_i w_i = 1,\; w_i \ge 0
 $$
 
-Weights $w_i$ adapt to context:  
+Weights $w_i \ge 0$ adapt to context:  
 - Industry → emphasise $Qc$ + $Stb$  
 - Education → emphasise $HoR$ + $Exp$  
 - Global fairness → emphasise $NLE$

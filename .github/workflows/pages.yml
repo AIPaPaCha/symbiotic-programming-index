@@ -26,9 +26,10 @@ jobs:
         with:
           python-version: '3.11'
 
+      # .github/workflows/pages.yml
       - name: Install mkdocs + theme
         run: |
-          pip install mkdocs==1.6.1 mkdocs-material==9.5.39
+          pip install mkdocs==1.6.1 mkdocs-material==9.5.39 pymdown-extensions==10.8
 
       - name: Build site
         run: mkdocs build --strict
