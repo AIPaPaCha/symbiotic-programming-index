@@ -1,140 +1,118 @@
----
-title: Symbiotic Programming Index (SPI) — Documentation
-version: 0.1
-lang: en
----
-
 # Symbiotic Programming Index (SPI)
 
-## Why this project exists
+---
 
-The rise of large language models (LLMs) has unsettled one of the core assumptions of computer science:  
-that programming is the act of human authorship, line by line, where logic and intention are painstakingly encoded into formal syntax.
+## 🌍 Background & Motivation
 
-Today, AI systems can generate entire modules, pipelines, even complete products.  
-The human role is shifting: from writing code to orchestrating workflows, validating outputs, and safeguarding intent.
+Conventional benchmarks such as **CodeXGLUE**, **HumanEval**, and **MBPP** measure the *capabilities of models in isolation*.  
+They ask: *Can a model generate correct solutions for given tasks?*
 
-This transformation demands more than anecdotes or personal workflows.  
-It requires a **reproducible, measurable framework** to capture the maturity and reliability of human–AI programming.  
+But this is no longer the central question.  
+The real challenge is: **How do humans and AI co-produce software reliably, reproducibly, and pedagogically?**
 
-This is why we created the **Symbiotic Programming Index (SPI)**.
+- Traditional metrics ignore **workflow quality** (replay stability, orchestration cost, reproducibility).  
+- They ignore **human-off ratio** (how far humans can “let go” without loss of accountability).  
+- They ignore **AI explainability** (can AI articulate its reasoning as a tutor, not just a coder).  
+
+**SPI** addresses these blind spots by shifting the unit of analysis:  
+👉 from *models* to *workflows*.  
+👉 from *outputs* to *orchestration*.  
+👉 from *performance* to *symbiosis*.
 
 ---
 
-## From Vibe Coding to SPI
+## 🔬 Methodological Frame
 
-The concept of **“vibe coding”** emerged as practitioners began to use AI not just as a snippet generator,  
-but as a co-developer capable of sustaining multi-step orchestration.
+SPI is operationalised through **five measurable dimensions**: Qc, HoR, Exp, Stb, and NLE.  
 
-- Humans act at the architectural and judgment level.  
-- AI executes the majority of code generation, explanations, and validation.  
-- The workflow becomes a rhythm: cache prompts, orchestrate multiple agents, validate results, and replay reliably.
+We study them across **controlled workflows**:
 
-But anecdotes are not enough. To move beyond intuition, vibe coding must be formalised.  
-The next step is **measurement**: defining indices that make human–AI programming visible, testable, and comparable.
+- **Human-only coding** — traditional baseline.  
+- **AI-only generation** — single-shot, minimal orchestration.  
+- **Human–AI orchestration** — cached prompts, validators, multi-agent flows.  
 
-SPI is that framework.
+**Metrics & Validation:**
 
----
+- *Qc*: unit/integration pass rates, CI/CD deploy success, static analysis.  
+- *HoR*: number of edits, prompt ratio, human LOC %.  
+- *Exp*: reviewer-rated clarity, learning outcomes in student studies.  
+- *Stb*: test–retest reproducibility, regression recurrence.  
+- *NLE*: cross-lingual robustness, semantic drift under translation.  
 
-## Why these five dimensions?
-
-SPI initially defined **four core dimensions** to capture the paradigm shift:
-
-1. **Code Quality (Qc)** — Accuracy and completeness of outputs across tests, CI/CD, and architecture.  
-2. **Human-off Ratio (HoR)** — To what extent can humans “let go” while workflows remain accountable?  
-3. **AI Explainability (Exp)** — Can AI coders explain their design choices intelligibly and pedagogically?  
-4. **Stability (Stb)** — Do workflows reproduce across prompts, sessions, and model versions?  
-5. **Natural Language Engagement (NLE)** — Ensuring orchestration works across languages and cultures, not just English.  
-   Without this, AI programming risks creating new divides in global education and industry.
-
-Together, these five dimensions offer both **technical depth** and **social breadth**:  
-from unit tests and reproducibility, to pedagogy, professional identity, and global fairness.
+Validation strategies include:  
+- **Convergent validity** — SPI vs. defect density / productivity.  
+- **Test–retest reliability** — same orchestration across model versions.  
+- **Cross-model generalisation** — GPT, Claude, DeepSeek, Gemini.  
 
 ---
 
-## Priority and progression
+## 🎯 Contribution Highlights
 
-The five dimensions are not flat; they form a **research staircase** — from practical foundations to deep societal impact:
+- **Academic** — A reproducible taxonomy of orchestration workflows and failure modes.  
+- **Industrial** — Criteria for hybrid QA pipelines, measuring when AI coders can be trusted.  
+- **Educational** — Pedagogical modules where AI acts as tutor; orchestration as a core competency.  
+- **Philosophical** — Embedding debates on authorship, agency, and epistemology into measurable indices.  
+
+---
+
+
+## 📊 Priority and Progression
+
+The five SPI dimensions do not carry equal weight at all times.  
+They form a **research staircase** — from practical foundations to higher-order challenges:
 
 1. **Qc (Code Quality)** → the entry point. Without quality, nothing else matters.  
-2. **HoR (Human-off Ratio)** → once quality is stable, measure how far humans can step back.  
-3. **Exp (AI Explainability)** → with reduced intervention, demand that AI explains itself in ways humans can trust and learn from.  
-4. **Stb (Stability)** → the maturity test. Workflows must remain reproducible across runs, contexts, and model versions.  
-5. **NLE (Natural Language Engagement)** → the highest peak. True symbiosis must work across languages and cultures, avoiding an English-only bottleneck.
+2. **HoR (Human-off Ratio)** → once quality is reliable, measure how far humans can step back.  
+3. **Exp (Explainability)** → with reduced human intervention, demand that AI explains itself intelligibly.  
+4. **Stb (Stability)** → the maturity test: workflows must remain reproducible across runs, contexts, and model versions.  
+5. **NLE (Natural Language Engagement)** → the societal horizon: true symbiosis must work across languages and cultures.
 
-In short:
+**Grouping:**
+- **Qc + Stb** → the **industrial foundation**, ensuring reliability and trustworthiness.  
+- **HoR + Exp** → the **academic and philosophical breakthrough**, redefining the role of engineers and AI’s epistemic value.  
+- **NLE** → the **societal horizon**, preventing an English-only bottleneck and enabling global inclusivity.  
 
-- **Qc + Stb** are the **industrial foundation** — making workflows reliable and trustworthy.  
-- **HoR + Exp** are the **academic and philosophical breakthrough** — redefining the engineer’s role and AI’s epistemic value.  
-- **NLE** is the **societal horizon** — ensuring global fairness and inclusivity in AI programming.  
-
-This priority structure also reflects **analysis difficulty and depth**:  
-from QC (low difficulty, mid depth) → HoR (moderate) → Exp (higher) → Stb (very high) → NLE (extreme).  
-The first three are “visible mountains,” while Stb and NLE are “peaks in the clouds.”
-
+This priority ordering also mirrors **analysis difficulty and depth**:  
+from **Qc (low difficulty, mid depth)** → **HoR (moderate)** → **Exp (high)** → **Stb (very high)** → **NLE (extreme)**.  
+The first three are “visible mountains,” while Stb and NLE remain “peaks in the clouds.”
 
 ---
 
-## 📐 SPI Formula (with NLE)
-
-We define the **Symbiotic Programming Index (SPI)** as a weighted combination of five dimensions:
+## 📐 SPI Formula
 
 $$
-SPI = w_{Qc}\,Qc \;+\; w_{HoR}\,HoR \;+\; w_{Exp}\,Exp \;+\; w_{Stb}\,Stb \;+\; w_{NLE}\,NLE,
-\quad \text{s.t. } \sum w_i = 1,\; w_i \ge 0
+\text{SPI}=\; w_{Qc}\,Qc + w_{HoR}\,HoR + w_{Exp}\,Exp + w_{Stb}\,Stb + w_{NLE}\,NLE,\quad
+\text{s.t. } \sum_i w_i = 1,\; w_i \ge 0
 $$
 
-Where:
-
-- **$Qc$** — *Code Quality*: accuracy, completeness, maintainability  
-- **$HoR$** — *Human-off Ratio*: extent to which humans can “let go” while workflows remain accountable  
-- **$Exp$** — *Explainability*: clarity and pedagogical value of AI’s self-explanations  
-- **$Stb$** — *Stability*: reproducibility across runs, sessions, and model versions  
-- **$NLE$** — *Natural Language Engagement*: the effect of language, wording, or cross-lingual variation on quality and explainability  
-
-The **weights ($w_i$)** are adjustable depending on context:  
-- **Industrial settings** may emphasise $Qc$ and $Stb$  
-- **Education** may emphasise $Exp$ and $HoR$  
-- **Global fairness** highlights $NLE$  
+Weights $w_i$ adapt to context:  
+- Industry → emphasise $Qc$ + $Stb$  
+- Education → emphasise $HoR$ + $Exp$  
+- Global fairness → emphasise $NLE$
 
 ---
 
-
-## What this documentation provides
-
-This repository is structured to provide both **narrative** and **methodology**:
-
-- **Drafts and Licenses**
-  - [v0.1 Draft](./v_01.md) — snapshot of the original proposal
-  - [License](./license.md) — sharing and citation rules
+## 📚 Documentation Structure
 
 - **Dimensions**
-  - [Code Quality (Qc)](./qc/index.md)
-  - [Human-off Ratio (HoR)](./hor/index.md)
-  - [AI Explainability (Exp)](./exp/index.md)
-  - [Stability (Stb)](./stb/index.md)
-  - [Natural Language Engagement (NLE)](./nle/index.md)
+  - [Code Quality (Qc)](./qc/index.md)  
+  - [Human-off Ratio (HoR)](./hor/index.md)  
+  - [AI Explainability (Exp)](./exp/index.md)  
+  - [Stability (Stb)](./stb/index.md)  
+  - [Natural Language Engagement (NLE)](./nle/index.md)  
 
-
----
-
-## Quick navigation
-
-- **Getting started** → Begin with the [v0.1 Draft](./v_01.md)  
-- **Research details** → Dive into [Methodology](./qc/methodology.md) and other dimension folders  
-- **Community use** → Cite SPI, contribute references, or use datasets under the [License](./license.md)
+- **Licenses**
+  - [License](./license.md) — sharing and citation rules
 
 ---
 
-## Enduring aim
+## 🚀 Enduring Aim
 
-SPI is not about faster coding.  
-It is about **rethinking the nature of programming itself**:  
+SPI is not just about *faster coding*.  
+It is about **redefining the act of programming itself**:  
 
-- From authorship to orchestration  
-- From snippets to workflows  
-- From isolated benchmarks to reproducible indices  
+- From authorship to orchestration.  
+- From isolated benchmarks to reproducible indices.  
+- From intuition to science.  
 
-Our aim is to build a **visible, teachable, and reproducible foundation** for software engineering in the era of AI —  
-a framework that can be tested, taught, and trusted.
+Our aim is to establish a **visible, teachable, and reproducible foundation** for software engineering in the AI era.  

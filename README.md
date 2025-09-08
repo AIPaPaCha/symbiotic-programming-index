@@ -26,7 +26,7 @@ Together, these dimensions provide a **quantitative lens** for the shift from pr
 With modern LLMs producing entire modules and pipelines, the developer’s role is moving from line-by-line authorship to **orchestrating** prompts, agents, and validators.
 SPI turns that shift into **reproducible measurement** — so teams, educators, and researchers can **test, teach, and trust** AI-assisted programming.
 
-For a deeper narrative and methods: see **[`/docs/en/index.md`](./docs/en/index.md)**.
+For a deeper narrative and methods: see **[`/docs/en/index.md`](./docs/index.md)**.
 
 ---
 
@@ -45,23 +45,6 @@ Rule of thumb:
 * **Qc + Stb** = industrial foundation
 * **HoR + Exp** = academic & pedagogical breakthrough
 * **NLE** = global fairness & access
-
----
-
-## 📐 SPI Formula (with NLE)
-
-A weighted combination of the five dimensions:
-
-$$
-SPI = w_{Qc}\,Qc + w_{HoR}\,HoR + w_{Exp}\,Exp + w_{Stb}\,Stb + w_{NLE}\,NLE,
-\quad \text{s.t. } \sum w_i = 1,\; w_i \ge 0
-$$
-
-**Contextual weighting examples**
-
-* **Industry:** emphasize $Qc, Stb$
-* **Education:** emphasize $Exp, HoR$
-* **Global access:** emphasize $NLE$
 
 ---
 
