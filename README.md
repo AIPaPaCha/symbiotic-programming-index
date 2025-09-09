@@ -5,6 +5,22 @@
 
 ---
 
+## Disclaimer & Positioning
+
+This document is an **open, early-stage exploration** of the *Symbiotic Programming Index (SPI)*.  
+It does **not** claim to be a final standard, but rather a **working draft** intended to spark discussion, invite critique, and evolve through community feedback.
+
+- **Work-in-Progress**: The framework, metrics, and methodology described here are provisional and subject to revision.  
+- **Community-Oriented**: The goal is to encourage collaboration across academia and industry, not to assert ownership or exclusivity.  
+- **Limitations**: At this stage, validation experiments are preliminary. Reproducibility and peer-reviewed publication remain ongoing priorities.  
+- **Next Steps**: Formal evaluation, dataset releases, and submissions to archival venues (e.g., ICSE, ASE, FSE, NeurIPS workshops) are planned to ensure academic rigor.
+
+By sharing this draft publicly, we hope to **surface blind spots, refine methods, and build a shared foundation** for studying human–AI co-production in software engineering.  
+Contributions, critiques, and replications are warmly welcome.
+
+
+---
+
 ## 🔍 What is SPI?
 
 The **Symbiotic Programming Index (SPI)** is a research framework to **measure human–AI co-production in software engineering**.
