@@ -29,7 +29,7 @@ The Symbiotic Programming Index (SPI) is not about inflating the value of a rese
 
 3. **Governance and Trust in Critical Domains**
    In healthcare, aviation, or finance, no one will trust a workflow just because a vendor says so.
-   Certification will be required — just like ISO standards today. SPI is positioned as the certification framework for AI coding workflows: quality (Qc), human-off ratio (HoR), explainability (Exp), and stability (Stb).
+   Certification will be required — just like ISO standards today. SPI is positioned as the certification framework for AI coding workflows: quality (Qc), human-off ratio (HoR), explainability (Exp), and stability (Stb), meanwhile, the natural langauge enagement (NLE) is another important index for internationalization.
 
 
 **In short:**
@@ -71,6 +71,7 @@ The real challenge is: **How do humans and AI co-produce software reliably, repr
 - Traditional metrics ignore **workflow quality** (replay stability, orchestration cost, reproducibility).  
 - They ignore **human-off ratio** (how far humans can “let go” without loss of accountability).  
 - They ignore **AI explainability** (can AI articulate its reasoning as a tutor, not just a coder).  
+- As well as, **natural langauge enagement (NLE)** (can the AI coder support different human langauges).
 
 **SPI** addresses these blind spots by shifting the unit of analysis:  
 👉 from *models* to *workflows*.  
@@ -102,6 +103,7 @@ We study them across **controlled workflows**:
 | **Stb** | – | Test–retest reproducibility, regression recurrence |
 | **NLE** | – | Cross-lingual robustness, semantic drift under translation |
 
+(the sub-dimensions will be filled up by subsides studies)
 
 Validation strategies include:  
 - **Convergent validity** — SPI vs. defect density / productivity.  
@@ -155,6 +157,8 @@ Weights \(w_i\) adapt to context:
 - Education → emphasise \(HoR\) + \(Exp\)  
 
 - Global fairness → emphasise \(NLE\)
+
+According to https://aipapacha.github.io/symbiotic-programming-index/#applicability-and-scalability-of-spi
 
 ---
 

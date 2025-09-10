@@ -56,7 +56,7 @@ The metrics in this domain are heterogeneous:
 
 The 2025 Survey cautions that “**challenges in creating a unified benchmark**” are particularly acute here, as requirements are highly context-dependent, with variations across industries and domains. Unlike code correctness, which admits a relatively objective measure (tests pass or fail), requirement interpretation inherently involves **semantic nuance** and **organizational conventions**.
 
-This fragmentation directly motivates SPI’s abstraction strategy. Rather than attempting to resolve differences in terminology or templates, we treat all requirements-side benchmarks as evidence feeding into a higher-level dimension: *does the workflow reliably capture, disambiguate, and formalize requirements into verifiable specifications?* Within SPI, this is subsumed into Qc.
+This fragmentation directly motivates SPI’s abstraction strategy. Rather than attempting to resolve differences in terminology or templates, we treat all requirements-side benchmarks as evidence feeding into a higher-level dimension: **Can an AI coder, agent, multi-component pipeline (MCP), or any AI-orchestrated workflow reliably capture, disambiguate, and formalize human requirements into *verifiable specifications*?** Within the SPI framework, this foundational challenge is subsumed under **Code Quality (Qc)**.
 
 ---
 
@@ -72,7 +72,7 @@ From the SPI perspective, these domains are **supporting evidence**: they reinfo
 
 Three insights emerge from a close reading:
 
-1. **Execution is paramount**: The repeated emphasis that “execution-based metrics assess practical usability and robustness” demonstrates that correctness-in-use, not just correctness-in-theory, is what matters.
+1. **Execution is paramount**: The repeated emphasis that “execution-based metrics assess practical usability and robustness”(2025 Survey) demonstrates that correctness-in-use, not just correctness-in-theory, is what matters.
 2. **Benchmarks will fragment endlessly**: With dozens of new benchmarks added each year, the proliferation will not slow down. The 2025 Survey shows the slope is steepening rather than flattening.
 3. **A unifying abstraction is absent**: Especially in requirements and design, but also across coding and testing, there is no consensus framework to integrate disparate metrics.
 
@@ -88,7 +88,7 @@ Within the **Symbiotic Programming Index (SPI)**, we define five dimensions: **C
 
 Qc is not a catch-all, but an **interface**. It condenses the vast proliferation of benchmarks—291 today, and potentially thousands more—into a set of coherent, workflow-level quality commitments. To function as such an interface, Qc must be carefully scoped: broad enough to capture industrial-grade software requirements, but precise enough not to absorb the mandates of the other four dimensions.
 
-We argue that Qc is best represented by **four core sub-coefficients**: **Correctness, Efficiency, Security, and Conformance**. Together, they answer the practical engineering question: *can the code run, run fast, run safely, and run according to accepted practices?*
+We argue that Qc is best represented by **four core sub-coefficients**: **Correctness, Efficiency, Security**, and **Conformance**. Together, they answer the practical engineering question: *can the code run, run fast, run safely, and run according to accepted practices?*
 
 ---
 
@@ -125,7 +125,7 @@ Security ensures that generated software is not only correct and efficient, but 
 * Dependency and version security.
 * License and compliance checks.
 
-Benchmarks like **SecurityEval(SecurityEval, 2022)** begin this work, but coverage remains uneven. SPI-Qc integrates security as a necessary coefficient, since software that passes tests but exposes vulnerabilities cannot be deemed of acceptable quality.
+Benchmarks like SecurityEval(SecurityEval, 2022) begin this work, but coverage remains uneven. SPI-Qc integrates security as a necessary coefficient, since software that passes tests but exposes vulnerabilities cannot be deemed of acceptable quality.
 
 Related datasets such as Vul4J (Bui et al., 2022) extend this evaluation by providing reproducible Java vulnerabilities for program repair.
 
@@ -154,7 +154,7 @@ However, evolutionary adaptability overlaps strongly with **Stability (Stb)** an
 
 ### 3.6 Synthesis
 
-By defining Qc as the weighted harmonic mean of **Correctness, Efficiency, Security, and Conformance**, SPI provides a rigorous but bounded abstraction. Qc thereby remains **broad enough** to capture what “industrial-grade software” requires, yet **narrow enough** to avoid absorbing the mandates of Stability, Explainability, or NLE.
+By defining Qc as the weighted harmonic mean of **Correctness, Efficiency, Security**, and **Conformance**, SPI provides a rigorous but bounded abstraction. Qc thereby remains **broad enough** to capture what “industrial-grade software” requires, yet **narrow enough** to avoid absorbing the mandates of Stability, Explainability, or NLE.
 
 In essence, these four sub-coefficients represent the **four industrial gates of software quality**:
 
@@ -270,7 +270,7 @@ $$
   * Idioms: rule-based checks for framework conventions (e.g., Spring layered DI, React component props/state hygiene).
   * Architecture: presence/coverage of resilience mechanisms (caching, circuit breakers, rate limiting, graceful degradation). The survey’s **human-in-the-loop** guidance justifies evaluating these practice-level criteria.
 
-**No extra chapter is required** to justify the math: the harmonic mean is chosen precisely because it encodes the engineering doctrine that **a single failing gate invalidates quality**. The survey’s own taxonomy—**NLP-based, code-specific, execution-based, diversity/consistency**—and its calls to go **beyond accuracy** to include **maintainability, performance, and security** provide the empirical footing for these four gates and their measurability.
+**No extra chapter is required** to justify the math: the harmonic mean is chosen precisely because it encodes the engineering doctrine that **a single failing gate invalidates quality**. The survey’s own taxonomy—**NLP-based, code-specific, execution-based, diversity/consistency**—and its calls to go **beyond accuracy** to include **maintainability, performance,** and **security** provide the empirical footing for these four gates and their measurability.
 
 ---
 
@@ -321,7 +321,7 @@ This section serves only as a **conceptual introduction**. The detailed glue scr
 
 ## 6. Discussion
 
-The proposed formulation of Qc as the harmonic mean of **Correctness, Efficiency, Security, and Conformance** is deliberately strict. It embodies the engineering principle that *a single failure invalidates quality*. This makes Qc less forgiving than arithmetic averages, but more aligned with the acceptance criteria of industrial software.
+The proposed formulation of Qc as the harmonic mean of **Correctness, Efficiency, Security,** and **Conformance** is deliberately strict. It embodies the engineering principle that *a single failure invalidates quality*. This makes Qc less forgiving than arithmetic averages, but more aligned with the acceptance criteria of industrial software.
 
 ### 6.1 Flexibility vs. Rigour
 
@@ -414,7 +414,7 @@ Future collaborators are encouraged to expand these adapters, refine the formula
 
 ---
 
-# Appendix A. Lab Manual (separate document)
+## Appendix A. Lab Manual (separate document)
 
-This paper has deliberately focused on the **conceptual definition** of Qc and its role within the Symbiotic Programming Index (SPI). While Section 5 outlined minimal protocols and sources of reference, the **full experimental procedures** are not reproduced here. A separate **Lab Manual** accompanies this notebook. It contains a full runnable code to initiate the research. (coming soon)
+- This paper has deliberately focused on the **conceptual definition** of Qc and its role within the Symbiotic Programming Index (SPI). While Section 5 outlined minimal protocols and sources of reference, the **full experimental procedures** are not reproduced here. A separate **Lab Manual** accompanies this notebook. It contains a full runnable code to initiate the research. (coming soon)
 ---
