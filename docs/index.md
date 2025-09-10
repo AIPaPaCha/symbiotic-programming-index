@@ -147,19 +147,20 @@ from **Qc (low difficulty, mid depth)** → **HoR (moderate)** → **Exp (high)*
 The first three are “visible mountains,” while Stb and NLE remain “peaks in the clouds.”
 
 ---
-
 ## 📐 SPI Formula
 
 $$
-\text{SPI}=\; w_{Qc}\,Qc + w_{HoR}\,HoR + w_{Exp}\,Exp + w_{Stb}\,Stb + w_{NLE}\,NLE,\quad
-\text{s.t. } \sum_i w_i = 1,\; w_i \ge 0
+\text{SPI}=\; w_{Qc}\,Qc + w_{HoR}\,HoR + w_{Exp}\,Exp + w_{Stb}\,Stb + w_{NLE}\,NLE,
+\quad \text{s.t. } \sum_i w_i = 1,\; w_i \ge 0
 $$
 
-Weights $w_i$ adapt to context:
-  - Industry → emphasise $Qc$ + $Stb$
-  - Education → emphasise $HoR$ + $Exp$
-  - Global fairness → emphasise $NLE$
+Weights \(w_i\) adapt to context:
 
+- Industry → emphasise \(Qc\) + \(Stb\) 
+
+- Education → emphasise \(HoR\) + \(Exp\)  
+
+- Global fairness → emphasise \(NLE\)
 
 ---
 
