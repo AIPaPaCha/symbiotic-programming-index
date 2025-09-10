@@ -1,5 +1,7 @@
 # SPI Working Paper Study: On Code Quality (Qc) as the Foundational Interface
-
+*Author: Charles Li*  
+*Date: September 2025*  
+*License: CC-BY-SA 4.0*  
 
 ## 1. Introduction
 
@@ -414,20 +416,5 @@ Future collaborators are encouraged to expand these adapters, refine the formula
 
 # Appendix A. Lab Manual (separate document)
 
-This paper has deliberately focused on the **conceptual definition** of Qc and its role within the Symbiotic Programming Index (SPI). While Section 5 outlined minimal protocols and sources of reference, the **full experimental procedures** are not reproduced here.
-
-A separate **Lab Manual** accompanies this notebook. It contains:
-
-* Reference adapter scripts (<50 lines each) for the four Qc gates.
-* Container manifests and configuration files (`qc_targets.yaml`, `docker-compose.yml`).
-* Step-by-step instructions for running small-scale benchmarks (HumanEval-mini, MBPP-mini) and real-project acceptance tests (e.g., Spring Boot CRUD modules).
-* Example outputs and aggregation into a single $Qc$ score.
-
-This separation reflects two goals:
-
-1. Keep the working paper concise and focused on **conceptual framing**.
-2. Provide a **practical, reproducible toolkit** for those who wish to validate or extend Qc in real workflows.
-
-👉 The Lab Manual is maintained as a living document in the project repository. Readers are encouraged to consult it for implementation details and updates.
-
+This paper has deliberately focused on the **conceptual definition** of Qc and its role within the Symbiotic Programming Index (SPI). While Section 5 outlined minimal protocols and sources of reference, the **full experimental procedures** are not reproduced here. A separate **Lab Manual** accompanies this notebook. It contains a full runnable code to initiate the research. (coming soon)
 ---
