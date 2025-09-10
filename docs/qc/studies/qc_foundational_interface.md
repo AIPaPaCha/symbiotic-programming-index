@@ -249,20 +249,20 @@ $$
 
 * **Correctness**:
 
-  * *ExecPass*: pass\@k / execution accuracy on HumanEval-family tasks (function/contest level) and newer robustness variants.
-  * *Compile*: compilation\@k / build success via **JavaBench** harness.
-  * *RepoExec*: run **REPOEXEC** tasks (functional correctness + dependency utilization).
+  - *ExecPass*: pass\@k / execution accuracy on HumanEval-family tasks (function/contest level) and newer robustness variants.
+  - *Compile*: compilation\@k / build success via **JavaBench** harness.
+  - *RepoExec*: run **REPOEXEC** tasks (functional correctness + dependency utilization).
 
 * **Efficiency**:
 
-  * Use **LiveCode-Bench / Mercury / EffiBench** “beyond pass” logs to extract runtime and memory; normalize as in $Q_{\text{Eff}}$.
-  * Where applicable, include **PAREval** speedup/efficiency\@k for compute-bound tasks.
+  - Use **LiveCode-Bench / Mercury / EffiBench** “beyond pass” logs to extract runtime and memory; normalize as in $Q_{\text{Eff}}$.
+  - Where applicable, include **PAREval** speedup/efficiency\@k for compute-bound tasks.
 
 * **Security**:
 
-  * Detection: evaluate F1/Accuracy on **BigVul / VulEval / SecVulEval** families.
-  * Repair: correctly-fixed / plausibly-fixed / compilation rate on **Vul4J / VJBench / SecurityEval**.
-  * Deps: audit dependencies for CVEs & licenses; report fraction compliant (the survey argues for **multi-metric evaluation beyond accuracy**, including **security**).
+  - Detection: evaluate F1/Accuracy on **BigVul / VulEval / SecVulEval** families.
+  - Repair: correctly-fixed / plausibly-fixed / compilation rate on **Vul4J / VJBench / SecurityEval**.
+  - Deps: audit dependencies for CVEs & licenses; report fraction compliant (the survey argues for **multi-metric evaluation beyond accuracy**, including **security**).
 
 * **Conformance**:
 
