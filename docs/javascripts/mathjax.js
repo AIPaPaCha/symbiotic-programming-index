@@ -1,15 +1,21 @@
-// docs/javascripts/mathjax.js
+// MathJax v3 基本配置（在加载 MathJax 主脚本前定义）
 window.MathJax = {
   tex: {
-    // 为了避免与货币/普通美元符号冲突，推荐关闭 $...$ 行内写法
-    inlineMath: [["\\(", "\\)"], ["$", "$"]],
-    // 块级支持两种：\[...\] 和 $$...$$
-    displayMath: [["\\[", "\\]"], ["$$", "$$"]],
-    processEscapes: true,
-    tags: "none"
+    inlineMath: [['\\(', '\\)'], ['$', '$']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']],
+    processEscapes: true
   },
   options: {
-    // 不在代码块等标签中渲染
-    skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
   }
 };
+
+// MkDocs Material 的文档内容更新事件：每次“换页”后重新 typeset
+// document$ 是 Material 暴露的全局可订阅对象
+if (typeof document$ !== 'undefined') {
+  document$.subscribe(() => {
+    if (window.MathJax && window.MathJax.typesetPromise) {
+      window.MathJax.typesetPromise();  // 关键：重排公式
+    }
+  });
+}
