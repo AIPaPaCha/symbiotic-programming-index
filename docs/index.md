@@ -91,23 +91,17 @@ We study them across **controlled workflows**:
 
 **Metrics & Validation:**
 
-- *Qc* is defined across four dimensions:  
+| Dimension | Sub-dimension | Measurement |
+|-----------|---------------|-------------|
+| **Qc** | Correctness | Unit/integration test pass rates, defect density |
+|         | Efficiency  | Runtime benchmarks, resource utilisation |
+|         | Security    | Vulnerability scans, static analysis |
+|         | Conformance | CI/CD pipeline success, linting compliance, code review acceptance |
+| **HoR** | – | Number of edits, prompt ratio, human LOC % |
+| **Exp** | – | Reviewer-rated clarity, learning outcomes |
+| **Stb** | – | Test–retest reproducibility, regression recurrence |
+| **NLE** | – | Cross-lingual robustness, semantic drift under translation |
 
-  - **Correctness**  
-    Measured by unit/integration test pass rates and defect density.  
-
-  - **Efficiency**  
-    Measured by runtime benchmarks and resource utilisation profiles.  
-
-  - **Security**  
-    Measured by vulnerability scans and static analysis reports.  
-
-  - **Conformance**  
-    Measured by CI/CD pipeline success, linting compliance, and code review acceptance. 
-- *HoR*: number of edits, prompt ratio, human LOC %.  
-- *Exp*: reviewer-rated clarity, learning outcomes in student studies.  
-- *Stb*: test–retest reproducibility, regression recurrence.  
-- *NLE*: cross-lingual robustness, semantic drift under translation.  
 
 Validation strategies include:  
 - **Convergent validity** — SPI vs. defect density / productivity.  
@@ -166,15 +160,22 @@ Weights \(w_i\) adapt to context:
 
 ## 📚 Documentation Structure
 
-- **Dimensions**
-  - [Code Quality (Qc)](./qc/index.md)  
-  - [Human-off Ratio (HoR)](./hor/index.md)  
-  - [AI Explainability (Exp)](./exp/index.md)  
-  - [Stability (Stb)](./stb/index.md)  
-  - [Natural Language Engagement (NLE)](./nle/index.md)  
+**Dimensions**
 
-- **Licenses**
-  - [License](./license.md) — sharing and citation rules
+**[Code Quality (Qc)](./qc/index.md)**  
+: Measures accuracy and completeness across frontend, backend, architecture, and deployment.  
+
+**[Human-off Ratio (HoR)](./hor/index.md)**  
+: Quantifies the extent to which humans can “let go” while still producing industrial-grade results.  
+
+**[AI Explainability (Exp)](./exp/index.md)**  
+: Evaluates whether AI can articulate why specific designs were produced, offering pedagogical and reverse-training value.  
+
+**[Stability (Stb)](./stb/index.md)**  
+: Tests whether workflows remain robust under prompt replays, multi-session runs, and evolving LLM versions.  
+
+**[Natural Language Engagement (NLE)](./nle/index.md)**  
+: Captures cross-lingual robustness and semantic drift under translation.  
 
 ---
 
