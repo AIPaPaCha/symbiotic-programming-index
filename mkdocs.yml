@@ -50,5 +50,7 @@ nav:
       - AI Explainability (Exp): exp/index.md
       - Stability (Stb): stb/index.md
       - Natural Language Engagement (NLE): nle/index.md
+  - Studies:
+      - On Code Quality (Qc) as the Foundational Interface: qc/studies/qc_foundational_interface.md
   - Licenses:
       - License: license.md
