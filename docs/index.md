@@ -219,7 +219,7 @@ If you use SPI ideas, metrics, or datasets, please cite as:
 ## 📜 License
 
 * **Code**: Apache-2.0 — see [`LICENSE`](./LICENSE)
-* **Docs & research materials** (e.g., statements, methodology in `/docs`): **CC BY-NC 4.0** — see [`LICENSE-docs.md`](./LICENSE-docs.md)
+* **Docs & research materials** (e.g., statements, methodology in `/docs`): **CC BY-NC 4.0** — see [`LICENSE-CC-BY-4.0`](./LICENSE-CC-BY-4.0)
 
 This dual license lets **code be freely reused**, while keeping **research documents non-commercial**.
 
