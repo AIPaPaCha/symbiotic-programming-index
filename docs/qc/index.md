@@ -35,3 +35,7 @@ Good code is not always *useful* code. Current benchmarks rarely capture **indus
 SPI treats Qc not just as a matter of “passing tests,” but as a broader measure of **real-world viability**.  
 Future work must bridge the gap between **benchmark correctness** and **industry readiness**:  
 from functional snippets → to modular, maintainable, and contextually *useful* software systems.  
+
+
+## Studies
+**#On Code Quality (Qc) as the Foundational Interface** a study from the https://arxiv.org/pdf/2505.08903 which evaluated 291 benchmarks for AI coding.[(Click here)](./studies/qc_foundational_interface.md)  
