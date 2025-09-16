@@ -479,5 +479,3 @@ The binary calculator sample serves as a **template for custom QC implementation
 3. **Integrate new benchmarks**: Add adapters for additional correctness/security benchmarks
 4. **Deploy in CI/CD**: Use the framework for automated quality gates
 
-This working implementation transforms the theoretical QC framework into **immediately usable, reproducible evaluation tools** that can be deployed today.
----
