@@ -1,0 +1,39 @@
+{
+  "scores": {
+    "correctness": 1.0,
+    "efficiency": 0.9930854631820694,
+    "security": 0.8,
+    "conformance": 0.6666666666666666,
+    "overall": 0.8408737187902203
+  },
+  "details": {
+    "correctness": {
+      "passed": 7,
+      "total": 7,
+      "failed_tests": [],
+      "score": 1.0
+    },
+    "efficiency": {
+      "total_time": 1.362498733215034e-05,
+      "max_memory": 214,
+      "time_score": 0.9863750126678497,
+      "memory_score": 0.9997959136962891,
+      "score": 0.9930854631820694
+    },
+    "security": {
+      "issues": [
+        "Potential integer overflow from user input"
+      ],
+      "issue_count": 1,
+      "score": 0.8
+    },
+    "conformance": {
+      "documentation_coverage": 0.0,
+      "line_length_score": 1.0,
+      "naming_score": 1.0,
+      "long_lines": 0,
+      "naming_issues": 0,
+      "score": 0.6666666666666666
+    }
+  }
+}
