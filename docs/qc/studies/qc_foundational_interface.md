@@ -1,7 +1,20 @@
 # SPI Working Paper Study: On Code Quality (Qc) as the Foundational Interface
 *Author: Charles Li*  
 *Date: September 2025*  
-*License: CC-BY-SA 4.0*  
+*License: CC-BY-SA 4.0*
+
+## Changelog
+
+**Version 1.1 (September 16, 2025)**
+- Updated Appendix A to reference the working Binary Calculator QC Sample implementation
+- Added concrete examples and live demonstration links
+- Replaced theoretical "Lab Manual (coming soon)" with actual working code
+- Aligned with the practical QC framework implementation in SPI examples
+
+**Version 1.0 (September 2025)**
+- Initial publication of the foundational QC interface study
+- Established four-dimensional QC framework (Correctness, Efficiency, Security, Conformance)
+- Defined harmonic mean scoring system and theoretical foundations  
 
 ## 1. Introduction
 
@@ -414,7 +427,57 @@ Future collaborators are encouraged to expand these adapters, refine the formula
 
 ---
 
-## Appendix A. Lab Manual (separate document)
+## Appendix A. Working Implementation: Binary Calculator QC Sample
 
-- This paper has deliberately focused on the **conceptual definition** of Qc and its role within the Symbiotic Programming Index (SPI). While Section 5 outlined minimal protocols and sources of reference, the **full experimental procedures** are not reproduced here. A separate **Lab Manual** accompanies this notebook. It contains a full runnable code to initiate the research. (coming soon)
+This paper has deliberately focused on the **conceptual definition** of Qc and its role within the Symbiotic Programming Index (SPI). While Section 5 outlined minimal protocols and sources of reference, we now provide a **complete working implementation** that demonstrates the four-dimensional QC framework in practice.
+
+### A.1 Live Demonstration
+
+The **[Binary Calculator QC Sample](../../../spi-examples/spi-qc/binary_calculator_sample/)** provides a fully operational implementation of the QC evaluation system described in this paper. This sample demonstrates:
+
+- **Real AI-generated code evaluation** across all four QC dimensions
+- **Concrete scoring implementation** using the weighted harmonic mean formula
+- **Practical measurement protocols** that can be run on modest hardware
+- **Actionable quality reports** with specific improvement recommendations
+
+### A.2 Running the Sample
+
+```bash
+cd spi-examples/spi-qc/binary_calculator_sample/
+python run_demo.py
+```
+
+**Expected Output:**
+```
+SPI-QC Results (Binary Calculator):
+Overall QC Score: 0.841 ✅ PASS
+Correctness: 1.000 (All tests pass)
+Efficiency: 0.993 (Fast execution, low memory)
+Security: 0.800 (Minor input validation issues)
+Conformance: 0.667 (Missing documentation)
+
+Recommendations:
+• Add docstrings to classes and methods
+• Implement input sanitization for user data
+```
+
+### A.3 Implementation Architecture
+
+The sample includes:
+
+- **`qc_framework/qc_evaluator.py`**: Core QC evaluation engine implementing the harmonic mean formula
+- **`qc_framework/report.py`**: Quality reporting and recommendation system
+- **`tests/test_binary_calculator.py`**: Comprehensive test suite for correctness evaluation
+- **`ai_generated/`**: Sample AI-generated code (both working and flawed versions)
+
+### A.4 Extending the Framework
+
+The binary calculator sample serves as a **template for custom QC implementations**:
+
+1. **Add new algorithms**: Extend the `AlgorithmBase` class for different domains
+2. **Customize quality rules**: Modify the evaluation criteria in `qc_evaluator.py`
+3. **Integrate new benchmarks**: Add adapters for additional correctness/security benchmarks
+4. **Deploy in CI/CD**: Use the framework for automated quality gates
+
+This working implementation transforms the theoretical QC framework into **immediately usable, reproducible evaluation tools** that can be deployed today.
 ---
