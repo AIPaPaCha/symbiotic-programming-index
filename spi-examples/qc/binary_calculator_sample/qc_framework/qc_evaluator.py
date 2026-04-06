@@ -5,15 +5,29 @@ Evaluates code across four dimensions: Correctness, Efficiency, Security, Confor
 """
 
 import time
-import subprocess
 import sys
 import os
 import tracemalloc
-from typing import Dict, List, Tuple, Any
+from typing import Dict, Any
 import ast
 import re
 
+# Scoring thresholds (configurable per domain)
+TIME_THRESHOLD_SECONDS = 0.001   # 1 ms — operations slower than this lose points
+MEMORY_THRESHOLD_BYTES = 1024 * 1024  # 1 MB
+SECURITY_PENALTY_PER_ISSUE = 0.2
+EPSILON = 1e-6  # Stability constant for harmonic mean
+
+
 class QCEvaluator:
+    """Evaluates a Python source file across the four SPI-Qc gates.
+
+    Usage:
+        evaluator = QCEvaluator("path/to/file.py")
+        results = evaluator.run_evaluation()
+        print(results['scores']['overall'])
+    """
+
     def __init__(self, target_file: str):
         self.target_file = target_file
         self.results = {
@@ -128,8 +142,8 @@ class QCEvaluator:
             
             # Simple scoring: faster is better, less memory is better
             # Normalize against reasonable thresholds
-            time_score = max(0, 1 - (total_time / 0.001))  # 1ms threshold
-            memory_score = max(0, 1 - (max_memory / (1024 * 1024)))  # 1MB threshold
+            time_score = max(0, 1 - (total_time / TIME_THRESHOLD_SECONDS))
+            memory_score = max(0, 1 - (max_memory / MEMORY_THRESHOLD_BYTES))
             
             efficiency_score = (time_score + memory_score) / 2
             
@@ -175,8 +189,7 @@ class QCEvaluator:
             
             # Simple scoring based on issues found
             base_score = 1.0
-            penalty_per_issue = 0.2
-            security_score = max(0, base_score - (len(security_issues) * penalty_per_issue))
+            security_score = max(0, base_score - (len(security_issues) * SECURITY_PENALTY_PER_ISSUE))
             
             self.details['security'] = {
                 'issues': security_issues,
@@ -265,7 +278,7 @@ class QCEvaluator:
         if weights is None:
             weights = {'correctness': 0.25, 'efficiency': 0.25, 'security': 0.25, 'conformance': 0.25}
         
-        epsilon = 1e-6
+        epsilon = EPSILON
         harmonic_sum = 0
         
         for dimension, weight in weights.items():

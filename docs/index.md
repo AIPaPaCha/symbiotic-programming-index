@@ -1,240 +1,174 @@
 # Symbiotic Programming Index (SPI)
 
-## Disclaimer & Positioning
+**A practical framework for measuring human–AI coding workflows.**
 
-This document is an **open, early-stage exploration** of the *Symbiotic Programming Index (SPI)*.  
-It does **not** claim to be a final standard, but rather a **working draft** intended to spark discussion, invite critique, and evolve through community feedback.
+SPI gives you a structured way to evaluate how well humans and AI collaborate to produce software. It works for individual developers, engineering teams, and educators — and it is designed to be used directly with AI agents.
 
-- **Work-in-Progress**: The framework, metrics, and methodology described here are provisional and subject to revision.  
-- **Community-Oriented**: The goal is to encourage collaboration across academia and industry, not to assert ownership or exclusivity.  
-- **Limitations**: At this stage, validation experiments are preliminary. Reproducibility and peer-reviewed publication remain ongoing priorities.  
-- **Next Steps**: Formal evaluation, dataset releases, and submissions to archival venues (e.g., ICSE, ASE, FSE, NeurIPS workshops) are planned to ensure academic rigor.
-
-By sharing this draft publicly, we hope to **surface blind spots, refine methods, and build a shared foundation** for studying human–AI co-production in software engineering.  
-Contributions, critiques, and replications are warmly welcome.
+> **New to SPI?** Start with the [SPI Schema](https://github.com/AIPaPaCha/symbiotic-programming-index/blob/main/SPI_SCHEMA.md) — a single file you can hand to any AI agent to evaluate your workflow.
 
 ---
 
-## 👉 Why SPI is Inevitable
+## What SPI Measures
 
-The Symbiotic Programming Index (SPI) is not about inflating the value of a research idea. Its necessity comes from objective trends that the industry cannot avoid:
+SPI evaluates workflows (not models) across **five dimensions**:
 
-1. **Inevitable Competition of Claims**
-   In five years, every vendor will say: *“My AI coding workflow is the best, my IDE is the best, my coding agent is the best.”*
-   Without a reproducible yardstick, these claims will remain marketing noise. SPI exists to turn “best” into something measurable.
+| Dimension | Question | Status |
+|-----------|----------|--------|
+| [**Qc** — Code Quality](./qc/index.md) | Does the workflow produce software that works, performs well, is secure, and follows conventions? | Mature |
+| [**HoR** — Human-off Ratio](./hor/index.md) | How far can the human step back while maintaining quality? | Outlined |
+| [**Exp** — AI Explainability](./exp/index.md) | Can the AI explain its design choices for trust and learning? | Early |
+| [**Stb** — Stability](./stb/index.md) | Are results reproducible across runs, sessions, and model versions? | Early |
+| [**NLE** — Natural Language Engagement](./nle/index.md) | Does the workflow remain effective across languages and cultures? | Early |
 
-2. **Educational and Professional Demand**
-   Future curricula cannot stop at teaching syntax or casual prompt tricks.
-   Students will need to learn orchestration, reproducibility, and explainability as core competencies. SPI provides the metrics that define what “competence” means in an AI–human workflow.
-
-3. **Governance and Trust in Critical Domains**
-   In healthcare, aviation, or finance, no one will trust a workflow just because a vendor says so.
-   Certification will be required — just like ISO standards today. SPI is positioned as the certification framework for AI coding workflows: quality (Qc), human-off ratio (HoR), explainability (Exp), and stability (Stb), meanwhile, the natural langauge enagement (NLE) is another important index for internationalization.
-
-
-**In short:**
-SPI is not optional. It is the measuring instrument that industry, education, and governance will all require once AI coding moves from experimentation to infrastructure.
+These dimensions form a **staircase**: Qc is the foundation (nothing matters without quality), HoR is the leverage point (how much can humans let go), and Exp/Stb/NLE ascend toward trust, reproducibility, and global fairness.
 
 ---
 
-## Applicability and Scalability of SPI
-
-The Symbiotic Programming Index (SPI) is not a static benchmark.
-Its value lies in scalability: different dimensions acquire different weights depending on the *scale and purpose* of the AI system being evaluated.
-
-* At the **micro level** (functions, modules, MCP components), reproducibility and quality dominate.
-* At the **workflow level** (pipelines, multi-agent orchestration), stability and human-off ratio become central.
-* At the **macro level** (autonomous programming robots or AI tutors), explainability and natural language engagement take priority.
-
-This adaptability highlights SPI as a *living framework* that can flexibly adjust to the maturity, size, and goals of AI–human coding systems.
-
-| **AI System Scale**          | **Qc** | **HoR** | **Exp** | **Stb** | **NLE** | **Key Implication**                                         |
-| ---------------------------- | ------ | ------- | ------- | ------- | ------- | ----------------------------------------------------------- |
-| Function / Module            | 40%    | 5%      | 5%      | 45%     | 5%      | Industrial-grade testing and reproducibility are paramount. |
-| Pipeline / MCP Agent         | 30%    | 20%     | 10%     | 30%     | 10%     | Balance stability and human–AI orchestration efficiency.    |
-| Multi-Agent System           | 25%    | 30%     | 20%     | 15%     | 10%     | Human role shifts to orchestrator; HoR gains importance.    |
-| Programming Robot / AI Tutor | 15%    | 25%     | 30%     | 10%     | 20%     | Explainability and multilingual fairness are essential.     |
-
-
-![SPI Radar Chart](images/spi-radar.svg)
-
----
-
-## 🌍 Background & Motivation
-
-Conventional benchmarks such as **CodeXGLUE**, **HumanEval**, and **MBPP** measure the *capabilities of models in isolation*.  
-They ask: *Can a model generate correct solutions for given tasks?*
-
-But this is no longer the central question.  
-The real challenge is: **How do humans and AI co-produce software reliably, reproducibly, and pedagogically?**
-
-- Traditional metrics ignore **workflow quality** (replay stability, orchestration cost, reproducibility).  
-- They ignore **human-off ratio** (how far humans can “let go” without loss of accountability).  
-- They ignore **AI explainability** (can AI articulate its reasoning as a tutor, not just a coder).  
-- As well as, **natural langauge enagement (NLE)** (can the AI coder support different human langauges).
-
-**SPI** addresses these blind spots by shifting the unit of analysis:  
-👉 from *models* to *workflows*.  
-👉 from *outputs* to *orchestration*.  
-👉 from *performance* to *symbiosis*.
-
----
-
-## 🔬 Methodological Frame
-
-SPI is operationalised through **five measurable dimensions**: Qc, HoR, Exp, Stb, and NLE.  
-
-We study them across **controlled workflows**:
-
-- **Human-only coding** — traditional baseline.  
-- **AI-only generation** — single-shot, minimal orchestration.  
-- **Human–AI orchestration** — cached prompts, validators, multi-agent flows.  
-
-**Metrics & Validation:**
-
-| Dimension | Sub-dimension | Measurement |
-|-----------|---------------|-------------|
-| **Qc** | Correctness | Unit/integration test pass rates, defect density |
-|         | Efficiency  | Runtime benchmarks, resource utilisation |
-|         | Security    | Vulnerability scans, static analysis |
-|         | Conformance | CI/CD pipeline success, linting compliance, code review acceptance |
-| **HoR** | – | Number of edits, prompt ratio, human LOC % |
-| **Exp** | – | Reviewer-rated clarity, learning outcomes |
-| **Stb** | – | Test–retest reproducibility, regression recurrence |
-| **NLE** | – | Cross-lingual robustness, semantic drift under translation |
-
-(the sub-dimensions will be filled up by subsides studies)
-
-Validation strategies include:  
-- **Convergent validity** — SPI vs. defect density / productivity.  
-- **Test–retest reliability** — same orchestration across model versions.  
-- **Cross-model generalisation** — GPT, Claude, DeepSeek, Gemini.  
-
----
-
-## 🎯 Contribution Highlights
-
-- **Academic** — A reproducible taxonomy of orchestration workflows and failure modes.  
-- **Industrial** — Criteria for hybrid QA pipelines, measuring when AI coders can be trusted.  
-- **Educational** — Pedagogical modules where AI acts as tutor; orchestration as a core competency.  
-- **Philosophical** — Embedding debates on authorship, agency, and epistemology into measurable indices.  
-
----
-
-
-## 📊 Priority and Progression
-
-The five SPI dimensions do not carry equal weight at all times.  
-They form a **research staircase** — from practical foundations to higher-order challenges:
-
-1. **Qc (Code Quality)** → the entry point. Without quality, nothing else matters.  
-2. **HoR (Human-off Ratio)** → once quality is reliable, measure how far humans can step back.  
-3. **Exp (Explainability)** → with reduced human intervention, demand that AI explains itself intelligibly.  
-4. **Stb (Stability)** → the maturity test: workflows must remain reproducible across runs, contexts, and model versions.  
-5. **NLE (Natural Language Engagement)** → the societal horizon: true symbiosis must work across languages and cultures.
-
-**Grouping:**
-- **Qc + Stb** → the **industrial foundation**, ensuring reliability and trustworthiness.  
-- **HoR + Exp** → the **academic and philosophical breakthrough**, redefining the role of engineers and AI’s epistemic value.  
-- **NLE** → the **societal horizon**, preventing an English-only bottleneck and enabling global inclusivity.  
-
-This priority ordering also mirrors **analysis difficulty and depth**:  
-from **Qc (low difficulty, mid depth)** → **HoR (moderate)** → **Exp (high)** → **Stb (very high)** → **NLE (extreme)**.  
-The first three are “visible mountains,” while Stb and NLE remain “peaks in the clouds.”
-
----
-## 📐 SPI Formula
+## The SPI Formula
 
 $$
 \text{SPI}=\; w_{Qc}\,Qc + w_{HoR}\,HoR + w_{Exp}\,Exp + w_{Stb}\,Stb + w_{NLE}\,NLE,
 \quad \text{s.t. } \sum_i w_i = 1,\; w_i \ge 0
 $$
 
-Weights \(w_i\) adapt to context:
+Weights adapt to your context:
 
-- Industry → emphasise \(Qc\) + \(Stb\) 
-
-- Education → emphasise \(HoR\) + \(Exp\)  
-
-- Global fairness → emphasise \(NLE\)
-
-According to https://aipapacha.github.io/symbiotic-programming-index/#applicability-and-scalability-of-spi
-
----
-
-## 📚 Documentation Structure
-
-**Dimensions**
-
-**[Code Quality (Qc)](./qc/index.md)**  
-: Measures accuracy and completeness across frontend, backend, architecture, and deployment.  
-
-**[Human-off Ratio (HoR)](./hor/index.md)**  
-: Quantifies the extent to which humans can “let go” while still producing industrial-grade results.  
-
-**[AI Explainability (Exp)](./exp/index.md)**  
-: Evaluates whether AI can articulate why specific designs were produced, offering pedagogical and reverse-training value.  
-
-**[Stability (Stb)](./stb/index.md)**  
-: Tests whether workflows remain robust under prompt replays, multi-session runs, and evolving LLM versions.  
-
-**[Natural Language Engagement (NLE)](./nle/index.md)**  
-: Captures cross-lingual robustness and semantic drift under translation.  
+| Profile | Qc | HoR | Exp | Stb | NLE | Use when... |
+|---------|-----|------|------|------|------|-------------|
+| **Industry** | 0.35 | 0.15 | 0.10 | 0.30 | 0.10 | Evaluating production code and CI/CD pipelines |
+| **Education** | 0.20 | 0.25 | 0.30 | 0.10 | 0.15 | Teaching orchestration, assessing students |
+| **Research** | 0.25 | 0.20 | 0.20 | 0.25 | 0.10 | Benchmarking and reproducibility studies |
+| **Global/Equity** | 0.20 | 0.10 | 0.10 | 0.15 | 0.45 | Cross-lingual fairness audits |
+| **Balanced** | 0.20 | 0.20 | 0.20 | 0.20 | 0.20 | General-purpose evaluation |
 
 ---
 
-## 🚀 Enduring Aim
+## How to Use SPI
 
-**Symbiotic Programming Index (SPI)** does not attempt to cover all dimensions of human–AI symbiosis.
-Its scope is deliberately narrow: programming workflows.
-By specialising in this domain, SPI provides the rigorous foundation upon which broader forms of symbiosis may later be studied.
+### For Individual Developers
 
-SPI is not just about *faster coding*.  
-It is about **redefining the act of programming itself**:  
+Hand the [SPI Schema](https://github.com/AIPaPaCha/symbiotic-programming-index/blob/main/SPI_SCHEMA.md) to your AI agent and ask it to evaluate a recent coding session. The agent will walk you through measuring each dimension and produce an SPI score with recommendations.
 
-- From authorship to orchestration.  
-- From isolated benchmarks to reproducible indices.  
-- From intuition to science.  
+**Minimal workflow:**
 
-Our aim is to establish a **visible, teachable, and reproducible foundation** for software engineering in the AI era.  
+1. Pick a task you completed with AI assistance
+2. Run your tests → Correctness score
+3. Run your linter + security scanner → Conformance + Security scores
+4. Count your prompts and edits → HoR score
+5. Compute SPI with your preferred weight profile
 
+### For Teams and Organisations
 
-## ✍️ Citation
+Use SPI to benchmark AI-assisted workflows against baselines:
 
-If you use SPI ideas, metrics, or datasets, please cite as:
+1. Define a representative task set (5–10 tasks of varying complexity)
+2. Run each in three modes: human-only, AI-only, human–AI orchestrated
+3. Score all five dimensions for each mode
+4. The value of orchestration = SPI(orchestrated) - max(SPI(human-only), SPI(AI-only))
+5. Set quality gates: Qc ≥ 0.8 for production, Qc ≥ 0.6 for staging
+
+### For Educators and Researchers
+
+Map SPI dimensions to learning objectives:
+
+- "Students produce Qc ≥ 0.7 code using AI" → quality competency
+- "Students achieve HoR ≥ 0.6 while maintaining Qc ≥ 0.7" → orchestration competency
+- "Students can evaluate AI explanations for accuracy" → explainability literacy
+
+Detailed protocols are in the [SPI Schema](https://github.com/AIPaPaCha/symbiotic-programming-index/blob/main/SPI_SCHEMA.md), Section 4.3.
+
+---
+
+## Scalability by AI System Type
+
+The five dimensions acquire different weights depending on the **scale** of the AI system:
+
+| AI System Scale | Qc | HoR | Exp | Stb | NLE | Key Focus |
+|-----------------|-----|------|------|------|------|-----------|
+| Function / Module | 0.40 | 0.05 | 0.05 | 0.45 | 0.05 | Testing and reproducibility |
+| Pipeline / Agent | 0.30 | 0.20 | 0.10 | 0.30 | 0.10 | Stability and orchestration efficiency |
+| Multi-Agent System | 0.25 | 0.30 | 0.20 | 0.15 | 0.10 | Human role shifts to orchestrator |
+| AI Tutor / Robot | 0.15 | 0.25 | 0.30 | 0.10 | 0.20 | Explainability and multilingual fairness |
+
+![SPI Radar Chart](images/spi-radar.svg)
+
+---
+
+## Why SPI Exists
+
+Three forces make SPI necessary:
+
+**Competition of claims.** Every vendor says their AI coding workflow is "the best." Without a reproducible yardstick, these claims remain marketing noise. SPI turns "best" into something measurable.
+
+**Educational demand.** Future curricula cannot stop at teaching syntax or casual prompt tricks. Students need to learn orchestration, reproducibility, and explainability as core competencies. SPI provides the metrics that define what "competence" means.
+
+**Governance and trust.** In healthcare, aviation, and finance, no one will trust a workflow just because a vendor says so. Certification will be required — just like ISO standards today. SPI is positioned as the measurement framework for AI coding workflows.
+
+---
+
+## The Idea File: A New Way to Share Frameworks
+
+Inspired by the emerging practice of sharing "idea files" rather than finished applications (cf. Karpathy's LLM Wiki), SPI is distributed as a **schema** — a single document ([SPI_SCHEMA.md](https://github.com/AIPaPaCha/symbiotic-programming-index/blob/main/SPI_SCHEMA.md)) that any AI agent can consume and execute.
+
+In the agent era, you do not need to share code. You share the idea, and the agent builds the implementation around your needs. SPI's schema tells the agent *what to measure, how to score it, and what to recommend*, while adapting to your specific context through weight profiles.
+
+The MkDocs site you are reading now is the **guide** — it explains the why, provides depth on each dimension, and hosts the research studies. The schema is the **tool**.
+
+---
+
+## Project Status
+
+| Component | Status | Description |
+|-----------|--------|-------------|
+| SPI Schema | **Available** | Agent-executable evaluation framework |
+| Qc dimension | **Mature** | Full framework, formulas, working paper, sample implementation |
+| HoR dimension | **Outlined** | Concept, measures, and challenges documented |
+| Exp dimension | **Early** | Overview and scaffolding |
+| Stb dimension | **Early** | Overview and scaffolding |
+| NLE dimension | **Early** | Overview and scaffolding |
+| Experiments | **Planned** | Formal evaluation and dataset releases |
+
+This is an **open lab notebook**. We document work-in-progress and negative results alongside successes, and we welcome contributions, critiques, and replications.
+
+---
+
+## Studies & Background
+
+For the theoretical foundations behind each dimension:
+
+- [On Code Quality (Qc) as the Foundational Interface](./qc/studies/qc_foundational_interface.md) — Working paper grounded in a survey of 291 benchmarks (arXiv:2505.08903)
+
+More studies will be added as the framework matures.
+
+---
+
+## Citation
 
 > **Charles Li and the SPI Project Contributors**,
-> *Symbiotic Programming Index (SPI): Measuring Human–AI Co-Production in Software Engineering*, 2025.
+> *Symbiotic Programming Index (SPI): Measuring Human–AI Co-Production in Software Engineering*, 2025–2026.
 > Available at: **[https://github.com/AIPaPaCha/symbiotic-programming-index](https://github.com/AIPaPaCha/symbiotic-programming-index)**
 
-**BibTeX**
-
 ```bibtex
-@misc{spi2025,
+@misc{spi2026,
   author       = {Charles Li and SPI Project Contributors},
-  title        = {Symbiotic Programming Index (SPI): Measuring Human--AI Co-Production in Software Engineering},
-  year         = {2025},
+  title        = {Symbiotic Programming Index (SPI): Measuring Human--AI
+                  Co-Production in Software Engineering},
+  year         = {2026},
   howpublished = {\url{https://github.com/AIPaPaCha/symbiotic-programming-index}},
-  note         = {Version 0.1, Open Research Project}
+  note         = {Version 0.2, Open Research Project}
 }
 ```
 
 ---
 
-## 📜 License
+## License
 
 * **Code**: Apache-2.0 — see [`LICENSE`](./LICENSE)
-* **Docs & research materials** (e.g., statements, methodology in `/docs`): **CC BY-NC 4.0** — see [`LICENSE-CC-BY-4.0`](./LICENSE-CC-BY-4.0)
-
-This dual license lets **code be freely reused**, while keeping **research documents non-commercial**.
+* **Docs & research materials**: **CC BY-NC 4.0** — see [`LICENSE-CC-BY-4.0`](./LICENSE-CC-BY-4.0)
 
 ---
 
-## 📬 Contact
-
-For collaboration or inquiries:
+## Contact
 
 * **Author**: Charles Li
 * **Email**: [charles\_lmq@outlook.com](mailto:charles_lmq@outlook.com)
-
----

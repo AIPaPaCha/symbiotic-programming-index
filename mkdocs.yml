@@ -1,10 +1,9 @@
-site_name: Symbiotic Programming Index (SPI) Lab Notebook
-site_description: Open lab notebook for measuring human–AI coding workflows
+site_name: Symbiotic Programming Index (SPI)
+site_description: A practical framework for measuring human–AI coding workflows
 site_author: Charles Li
 site_url: https://AIPaPaCha.github.io/symbiotic-programming-index
 repo_url: https://github.com/AIPaPaCha/symbiotic-programming-index
 repo_name: AIPaPaCha/symbiotic-programming-index
-
 
 theme:
   name: material
@@ -13,6 +12,7 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.top
+    - navigation.sections
     - toc.follow
     - search.suggest
     - content.code.copy
@@ -28,15 +28,17 @@ markdown_extensions:
       permalink: true
   - tables
   - pymdownx.details
-  - pymdownx.highlight
-  - pymdownx.tasklist
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true
 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
@@ -44,13 +46,13 @@ plugins:
 
 nav:
   - Home: index.md
-  - Dimensions:
+  - Guide:
       - Code Quality (Qc): qc/index.md
       - Human-off Ratio (HoR): hor/index.md
       - AI Explainability (Exp): exp/index.md
       - Stability (Stb): stb/index.md
       - Natural Language Engagement (NLE): nle/index.md
   - Studies:
-      - On Code Quality (Qc) as the Foundational Interface: qc/studies/qc_foundational_interface.md
-  - Licenses:
-      - License: license.md
+      - "Qc as Foundational Interface": qc/studies/qc_foundational_interface.md
+  - Methodology: methodology.md
+  - License: licenses.md

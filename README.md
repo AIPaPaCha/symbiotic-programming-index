@@ -1,143 +1,118 @@
 # Symbiotic Programming Index (SPI)
 
-**From Coding to Symbiosis: Redefining Software Engineering in the Age of AI**
-**[`Online Doc`](https://aipapacha.github.io/symbiotic-programming-index/)**
+**A practical framework for measuring human–AI coding workflows.**
+
+[**Online Guide**](https://aipapacha.github.io/symbiotic-programming-index/) · [**SPI Schema (Idea File)**](./SPI_SCHEMA.md)
 
 ---
 
-## Disclaimer & Positioning
+## What is SPI?
 
-This document is an **open, early-stage exploration** of the *Symbiotic Programming Index (SPI)*.  
-It does **not** claim to be a final standard, but rather a **working draft** intended to spark discussion, invite critique, and evolve through community feedback.
+SPI measures how effectively humans and AI collaborate to produce software. Unlike benchmarks that test models in isolation, SPI evaluates **workflows** — the orchestration pipelines of prompts, agents, validators, and human decisions.
 
-- **Work-in-Progress**: The framework, metrics, and methodology described here are provisional and subject to revision.  
-- **Community-Oriented**: The goal is to encourage collaboration across academia and industry, not to assert ownership or exclusivity.  
-- **Limitations**: At this stage, validation experiments are preliminary. Reproducibility and peer-reviewed publication remain ongoing priorities.  
-- **Next Steps**: Formal evaluation, dataset releases, and submissions to archival venues (e.g., ICSE, ASE, FSE, NeurIPS workshops) are planned to ensure academic rigor.
+SPI is distributed as an **idea file** ([`SPI_SCHEMA.md`](./SPI_SCHEMA.md)): hand it to any AI agent and ask it to evaluate your workflow. The agent will know what to measure, how to score, and what to recommend.
 
-By sharing this draft publicly, we hope to **surface blind spots, refine methods, and build a shared foundation** for studying human–AI co-production in software engineering.  
-Contributions, critiques, and replications are warmly welcome.
+## Five Dimensions
 
+| Dimension | Question | Status |
+|-----------|----------|--------|
+| **Qc** — Code Quality | Does the workflow produce software that works, performs, is secure, and follows conventions? | Mature |
+| **HoR** — Human-off Ratio | How far can the human step back while maintaining quality? | Outlined |
+| **Exp** — AI Explainability | Can the AI explain its design choices for trust and learning? | Early |
+| **Stb** — Stability | Are results reproducible across runs, sessions, and model versions? | Early |
+| **NLE** — Natural Language Engagement | Does the workflow remain effective across languages and cultures? | Early |
 
----
+## Quick Start
 
-## 🔍 What is SPI?
+**Option 1: Give the schema to your AI agent**
 
-The **Symbiotic Programming Index (SPI)** is a research framework to **measure human–AI co-production in software engineering**.
-Unlike benchmarks that test models in isolation, SPI evaluates **workflows** — pipelines where humans and AI collaborate to design, implement, and validate software.
+Copy [`SPI_SCHEMA.md`](./SPI_SCHEMA.md) into your project or conversation context, then ask your agent: *"Evaluate my last coding session using SPI."*
 
-SPI integrates **five measurable dimensions**:
+**Option 2: Manual evaluation**
 
-* **Code Quality (Qc)** – Can AI-orchestrated workflows produce industrial-grade software?
-* **Human-off Ratio (HoR)** – To what extent can humans “let go” while still ensuring accountability?
-* **AI Explainability (Exp)** – Can AI coders explain their reasoning in trustworthy, pedagogical ways?
-* **Stability (Stb)** – Are workflows reproducible across prompts, sessions, and model versions?
-* **Natural Language Engagement (NLE)** – Does orchestration remain effective and fair across languages, cultures, and variations in wording?
+```bash
+# 1. Run your tests → Correctness
+pytest --tb=short -q
 
-Together, these dimensions provide a **quantitative lens** for the shift from programming as authorship to programming as **orchestration**.
+# 2. Scan for vulnerabilities → Security
+bandit -r src/ -f json
 
----
+# 3. Check code style → Conformance
+flake8 src/
+interrogate src/ -v   # docstring coverage
 
-## 🧭 Why SPI (and why now)?
+# 4. Count your prompts and edits → HoR
+#    (manual: how many prompts, how many lines did you edit?)
 
-With modern LLMs producing entire modules and pipelines, the developer’s role is moving from line-by-line authorship to **orchestrating** prompts, agents, and validators.
-SPI turns that shift into **reproducible measurement** — so teams, educators, and researchers can **test, teach, and trust** AI-assisted programming.
+# 5. Compute Qc (harmonic mean of the four gates)
+#    Then compute SPI with your weight profile
+```
 
-For a deeper narrative and methods: see **[`/docs/index.md`](./docs/index.md)**, or the doc page **[`Online Doc`](https://aipapacha.github.io/symbiotic-programming-index/)**
+**Option 3: Run the sample**
 
----
+```bash
+cd spi-examples/qc/binary_calculator_sample/
+python run_demo.py
+```
 
-## ⛰️ Priority & Progression
+## The SPI Formula
 
-The five dimensions form a **research staircase** — from practical foundations to deep societal impact:
+```
+SPI = w_Qc × Qc + w_HoR × HoR + w_Exp × Exp + w_Stb × Stb + w_NLE × NLE
+```
 
-1. **Qc (Code Quality)** → the entry point; without quality, nothing else matters.
-2. **HoR (Human-off Ratio)** → once quality is under control, measure how far humans can step back.
-3. **Exp (Explainability)** → with reduced intervention, require AI to explain itself for trust and pedagogy.
-4. **Stb (Stability)** → the maturity test: reproducibility across runs, contexts, and versions.
-5. **NLE (Natural Language Engagement)** → the societal horizon: make symbiosis work across languages and cultures.
+Weights adapt to context: industry emphasises Qc + Stb, education emphasises HoR + Exp, global equity emphasises NLE. See the [schema](./SPI_SCHEMA.md) for weight profiles.
 
-Rule of thumb:
+## Project Structure
 
-* **Qc + Stb** = industrial foundation
-* **HoR + Exp** = academic & pedagogical breakthrough
-* **NLE** = global fairness & access
+```
+SPI_SCHEMA.md         — The idea file (primary product — hand this to any AI agent)
+CLAUDE.md             — Project guide for AI assistants
+docs/                 — MkDocs site (the readable guide)
+  index.md            — How to use SPI
+  qc/                 — Code Quality: four gates, scoring, tools
+  hor/                — Human-off Ratio: metrics, interpretation
+  exp/                — AI Explainability: rubric, assessment
+  stb/                — Stability: protocols, scoring
+  nle/                — Natural Language Engagement: cross-lingual testing
+  qc/studies/         — Research papers (theoretical foundations)
+spi-examples/qc/      — Working Binary Calculator QC sample
+```
 
----
+## Why SPI?
 
-## 🎯 Research Goals
+Programming is shifting from **authorship** to **orchestration**. Every vendor will claim their AI coding workflow is "the best." SPI provides the reproducible yardstick to turn "best" into something measurable — for industry, education, and governance.
 
-1. Establish SPI as a **reproducible benchmark** for AI-assisted coding workflows.
-2. Build datasets, taxonomies, and logging tools to capture orchestration traces.
-3. Pilot SPI in **academic**, **industrial**, and **educational** contexts.
-4. Ground the shift in a **philosophical foundation** for authorship, agency, and pedagogy.
+Inspired by the emerging practice of sharing idea files rather than finished applications (cf. Karpathy's LLM Wiki), SPI is a **meta-framework** distributed as a schema that any agent can execute. The schema is the tool; the MkDocs site is the documentation.
 
----
+## Contributing
 
-**Quick links**
+SPI is an open research project. Ways to contribute:
 
-* Start here → [`/docs/index.md`](./docs/index.md)
+- Propose or replicate experiments; share results
+- Improve methodology, metrics, or sample implementations
+- Open an Issue to discuss new dimensions or applications
+- Add references or related work
 
----
-
-## 🌍 Why Public?
-
-This repo is an **open lab notebook**. By documenting experiments and negative results alongside successes, we aim to accelerate collective learning across academia, industry, and open-source communities.
-
----
-
-## 🤝 Contributing
-
-SPI is an **open research project** — a living notebook that grows through shared ideas and experiments.
-
-**Ways to contribute**
-
-* 📖 Add references or related work (PRs welcome)
-* 🧪 Propose or replicate experiments; share logs/results
-* 🛠️ Improve methodology, metrics, or dataset design
-* 💡 Open an Issue to discuss new dimensions or applications
-
-Please keep contributions respectful, well-documented, and aligned with SPI’s **scientific and educational** goals.
-Commercial forks are **not** allowed under our docs license.
-
----
-
-## ✍️ Citation
-
-If you use SPI ideas, metrics, or datasets, please cite as:
-
-> **Charles Li and the SPI Project Contributors**,
-> *Symbiotic Programming Index (SPI): Measuring Human–AI Co-Production in Software Engineering*, 2025.
-> Available at: **[https://github.com/AIPaPaCha/symbiotic-programming-index](https://github.com/AIPaPaCha/symbiotic-programming-index)**
-
-**BibTeX**
+## Citation
 
 ```bibtex
-@misc{spi2025,
+@misc{spi2026,
   author       = {Charles Li and SPI Project Contributors},
-  title        = {Symbiotic Programming Index (SPI): Measuring Human--AI Co-Production in Software Engineering},
-  year         = {2025},
+  title        = {Symbiotic Programming Index (SPI): Measuring Human--AI
+                  Co-Production in Software Engineering},
+  year         = {2026},
   howpublished = {\url{https://github.com/AIPaPaCha/symbiotic-programming-index}},
-  note         = {Version 0.1, Open Research Project}
+  note         = {Version 0.2, Open Research Project}
 }
 ```
 
----
+## License
 
-## 📜 License
+- **Code** (including examples): Apache-2.0 — see [LICENSE](./LICENSE)
+- **Docs & research materials** (`/docs`): CC BY-NC 4.0 — see [LICENSE-CC-BY-4.0](./LICENSE-CC-BY-4.0)
 
-* **Code**: Apache-2.0 — see [`LICENSE`](./LICENSE)
-* **Docs & research materials** (e.g., statements, methodology in `/docs`): **CC BY-NC 4.0** — see [`LICENSE-docs.md`](./LICENSE-docs.md)
+## Contact
 
-This dual license lets **code be freely reused**, while keeping **research documents non-commercial**.
-
----
-
-## 📬 Contact
-
-For collaboration or inquiries:
-
-* **Author**: Charles Li
-* **Email**: [charles\_lmq@outlook.com](mailto:charles_lmq@outlook.com)
-
----
+- **Author**: Charles Li
+- **Email**: charles_lmq@outlook.com

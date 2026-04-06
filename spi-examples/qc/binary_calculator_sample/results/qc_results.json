@@ -1,10 +1,10 @@
 {
   "scores": {
     "correctness": 1.0,
-    "efficiency": 0.9930854631820694,
+    "efficiency": 0.996454730455298,
     "security": 0.8,
     "conformance": 0.6666666666666666,
-    "overall": 0.8408737187902203
+    "overall": 0.841476004995877
   },
   "details": {
     "correctness": {
@@ -14,11 +14,11 @@
       "score": 1.0
     },
     "efficiency": {
-      "total_time": 1.362498733215034e-05,
-      "max_memory": 214,
-      "time_score": 0.9863750126678497,
-      "memory_score": 0.9997959136962891,
-      "score": 0.9930854631820694
+      "total_time": 6.875008693896234e-06,
+      "max_memory": 226,
+      "time_score": 0.9931249913061038,
+      "memory_score": 0.9997844696044922,
+      "score": 0.996454730455298
     },
     "security": {
       "issues": [

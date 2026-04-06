@@ -1,100 +1,161 @@
-# Quality Control (QC)
+# Code Quality (Qc)
 
-## Overview
+**The foundational dimension.** Without quality, nothing else in SPI matters.
 
-**Quality Control (QC)** serves as the foundational interface between human-AI collaboration and real-world engineering acceptance. Rather than creating yet another benchmark, QC integrates and orchestrates existing evaluation methods into a unified four-dimensional framework.
+Qc answers one question: **Does this workflow produce industrial-grade software?**
 
-## Philosophy: Integration Over Innovation
+---
 
-QC recognizes that over 291 coding benchmarks already exist, each focusing on different aspects of correctness, efficiency, or realism. Our approach:
+## The Four Gates
 
-- **Leverages existing excellence** instead of reinventing evaluation
-- **Orchestrates proven benchmarks** under a unified quality contract
-- **Provides immediate deployment** using existing tools and infrastructure
-- **Builds on community consensus** with established validity
+Qc evaluates code across four gates. Every gate must pass — a single failure drags the entire score down.
 
-## Four-Dimensional Framework
+### 1. Correctness — Does it work?
 
-QC evaluates AI-generated code across four uncompromising dimensions, each weighted equally (25%):
+| What to check | Tools & signals |
+|----------------|-----------------|
+| Unit test pass rate | pytest, Jest, JUnit |
+| Integration / E2E tests | Playwright, Cypress, Selenium |
+| Build success | CI/CD pipeline status, compilation@k |
+| Benchmark correctness | HumanEval+, LiveCodeBench, SWE-bench |
 
-### 1. Correctness (25%)
-*Does it work?*
-- **HumanEval+**: Extended test cases for function-level correctness
-- **LiveCodeBench**: Competitive programming for program-level solutions
-- **SWE-bench**: GitHub issue resolution for repository-level correctness
+### 2. Efficiency — Is it fast enough?
 
-### 2. Efficiency (25%)
-*Is it fast?*
-- **Mercury & EffiBench**: Performance evaluation beyond pass/fail
-- **Runtime profiling**: Execution time vs. canonical solutions
-- **Memory analysis**: Resource usage optimization
+| What to check | Tools & signals |
+|----------------|-----------------|
+| Runtime latency | Profiling, `time` command, benchmark suites |
+| Throughput | Requests/second, items/second |
+| Memory usage | `tracemalloc`, heap profiling, container metrics |
+| Energy efficiency | Green software metrics (emerging) |
 
-### 3. Security (25%)
-*Is it safe?*
-- **SecurityEval**: Vulnerability pattern detection
-- **CodeQL**: Static analysis for exploitable patterns
-- **Bandit/ESLint**: Language-specific security linters
+Normalise against targets: `E_metric = min(1, target / observed)` for latency/memory, `min(1, observed / target)` for throughput.
 
-### 4. Conformance (25%)
-*Is it maintainable?*
-- **PEP 8/ESLint**: Style guide compliance
-- **Documentation coverage**: Docstring and comment analysis
-- **API usage patterns**: Library contract adherence
+### 3. Security — Is it safe?
 
-## Scoring System
+| What to check | Tools & signals |
+|----------------|-----------------|
+| Vulnerability detection | Bandit (Python), CodeQL, Semgrep |
+| Dependency audit | `npm audit`, `pip-audit`, Snyk, Dependabot |
+| License compliance | FOSSA, `license-checker` |
+| Input validation | SAST scanners, manual review |
 
-QC uses a **weighted harmonic mean** that implements the "shortest-plank principle" - poor performance in any dimension significantly impacts overall quality:
+### 4. Conformance — Is it maintainable?
+
+| What to check | Tools & signals |
+|----------------|-----------------|
+| Lint / style compliance | ESLint, Flake8, Prettier, `google-java-format` |
+| Documentation coverage | Docstring coverage tools, `interrogate` (Python) |
+| Framework idioms | Rule-based checks for Spring DI, React patterns, etc. |
+| Architectural patterns | Caching, circuit breakers, graceful degradation |
+
+---
+
+## Scoring
+
+Qc uses a **weighted harmonic mean** of the four gates:
+
+$$
+Qc \;=\; \Bigg(\sum_{j=1}^{4}\frac{\alpha_j}{Q_j+\epsilon}\Bigg)^{-1},\qquad
+\sum_{j=1}^4 \alpha_j = 1,\;\alpha_j \ge 0
+$$
+
+where \(\epsilon\) is a small stability constant (e.g., \(10^{-6}\)) to avoid division by zero.
+
+**Default weights:** 0.25 each (equal). Adjust for your domain:
+
+- Academic prototypes → higher Correctness weight, lower Conformance
+- Production systems → higher Security and Conformance
+- Performance-critical → higher Efficiency
+
+**Quality gates:**
+
+| Score | Grade | Meaning |
+|-------|-------|---------|
+| ≥ 0.8 | **Pass** | Industrial-ready |
+| 0.6–0.8 | **Conditional** | Needs targeted improvements |
+| < 0.6 | **Fail** | Significant rework required |
+
+**Why harmonic mean?** Because it enforces the *weakest-gate penalty*. Software that passes all tests but is riddled with CVEs scores poorly — exactly as it should. This mirrors real-world engineering acceptance: one failing gate invalidates the whole.
+
+---
+
+## How to Compute Qc (Minimal Protocol)
+
+**Step 1: Set up a containerised environment.**
+Use a minimal container (e.g., `python:3.12-slim`, `openjdk:21-jdk`) with pinned dependencies and fixed resource budgets (2 vCPU, 4–8 GB RAM).
+
+**Step 2: Collect scores for each gate.**
+
+```bash
+# Correctness: run your test suite
+pytest --tb=short -q  # record pass rate
+
+# Efficiency: profile runtime
+time python your_script.py  # compare against target
+
+# Security: scan for vulnerabilities
+bandit -r src/ -f json  # record finding count
+pip-audit  # check dependencies
+
+# Conformance: lint and check docs
+flake8 src/  # record violation count
+interrogate src/ -v  # docstring coverage
+```
+
+**Step 3: Normalise each gate to [0, 1].**
+
+**Step 4: Compute Qc using the harmonic mean formula.**
+
+All scores emit as structured JSON. A simple aggregator script (fewer than 50 lines of Python) can compute the final Qc.
+
+---
+
+## Sample Results
+
+From the [Binary Calculator QC Sample](../../spi-examples/qc/):
+
+| Version | Correctness | Efficiency | Security | Conformance | Qc | Grade |
+|---------|-------------|------------|----------|-------------|-----|-------|
+| Original | 1.000 | 0.993 | 0.800 | 0.667 | **0.841** | Pass |
+| Flawed | 0.000 | 0.500 | 0.400 | 0.626 | **0.000** | Fail |
+
+The flawed version scores 0.000 because Correctness = 0 — the harmonic mean ensures that a zero in any gate produces a zero overall.
+
+---
+
+## Worked Example: Scoring a Flask API
+
+Suppose an AI-generated Flask REST API passes 8/8 tests, runs in 23ms (target 100ms), has 1 medium security finding (unsanitised input), and has 40% docstring coverage with clean lint.
 
 ```
-QC = (Σ(w_j / (s_j + ε)))^(-1)
+Q_corr = 8/8                                       = 1.00
+Q_eff  = min(1, 100/23)                             = 1.00
+Q_sec  = 1.0 - (1 issue × 0.2 penalty)              = 0.80
+Q_conf = harmonic_mean(lint=0.90, docs=0.40)         = 0.55
+
+Qc = (0.25/1.00 + 0.25/1.00 + 0.25/0.80 + 0.25/0.55)^(-1)
+   = 0.789 → Conditional Pass
 ```
 
-Where:
-- `s_j`: normalized score per dimension (0.0-1.0)
-- `w_j`: dimension weights (default: 0.25 each)
-- `ε`: stability constant
+The bottleneck is Conformance — specifically the missing docstrings. Adding them would push Q_conf above 0.8, which lifts Qc above the Pass threshold. This is exactly the kind of actionable insight Qc is designed to produce: it tells you *where* to improve, not just *whether* you passed.
 
-### Quality Gates
-- **Pass (≥0.8)**: Industrial-ready code
-- **Conditional Pass (0.6-0.8)**: Needs improvements
-- **Fail (<0.6)**: Requires significant work
+---
 
-## Key Advantages
+## Tool Ecosystem
 
-Rather than creating new benchmarks, QC addresses **industry applicability** through integration:
+SPI does not mandate specific tools. Use whatever fits your stack. Here are common choices for each gate (as of 2026):
 
-- **Methodological Soundness**: Avoids duplication and leverages community consensus
-- **Practical Implementation**: Can be deployed today using existing infrastructure
-- **Academic Positioning**: Creates a meta-benchmark framework that synthesizes rather than competes
-- **Industrial Realism**: Four-dimensional evaluation mirrors real engineering standards
+| Gate | Python | JavaScript/TypeScript | Java | Multi-language |
+|------|--------|----------------------|------|----------------|
+| **Correctness** | pytest, unittest | Jest, Vitest | JUnit 5, TestNG | SWE-bench, HumanEval+ |
+| **Efficiency** | `time`, `tracemalloc`, py-spy | Lighthouse, `perf_hooks` | JMH, VisualVM | hyperfine, k6 |
+| **Security** | Bandit, pip-audit, Semgrep | npm audit, ESLint-security | SpotBugs, OWASP dep-check | CodeQL, Snyk, Trivy |
+| **Conformance** | Flake8, Ruff, interrogate | ESLint, Prettier, TypeDoc | Checkstyle, google-java-format | SonarQube |
 
-## Examples & Implementation
-
-### Live Demonstration
-The **[Binary Calculator Sample](../../examples/qc/)** provides a complete working example that demonstrates QC evaluation of AI-generated code across all four dimensions.
-
-**Sample Results:**
-| Version | Correctness | Efficiency | Security | Conformance | Overall | Status |
-|---------|-------------|------------|----------|-------------|---------|--------|
-| Original | 1.000 | 0.993 | 0.800 | 0.667 | **0.841** | ✅ PASS |
-| Flawed | 0.000 | 0.500 | 0.400 | 0.626 | **0.000** | ❌ FAIL |
-
-### Integration Approach
-```python
-# Correctness: Integrate existing benchmarks
-correctness_score = evaluate_with_existing_benchmarks([
-    'HumanEval+',     # Function-level correctness
-    'LiveCodeBench',  # Program-level solutions
-    'SWE-bench',      # Repository-level issues
-])
-
-# Security: Apply established tools
-security_score = run_security_analysis([
-    'SecurityEval',   # Vulnerability patterns
-    'CodeQL',         # Static analysis
-    'Bandit',         # Python security linter
-])
-```
+---
 
 ## Studies
-**On Code Quality (QC) as the Foundational Interface** - A study from https://arxiv.org/pdf/2505.08903 which evaluated 291 benchmarks for AI coding. [(Click here)](./studies/qc_foundational_interface.md)
+
+For the full theoretical foundations of Qc, including a deep reading of the 2025 Survey of 291 benchmarks (arXiv:2505.08903):
+
+**[On Code Quality (Qc) as the Foundational Interface](./studies/qc_foundational_interface.md)** — Working paper (September 2025)
