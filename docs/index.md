@@ -16,9 +16,9 @@ SPI evaluates workflows (not models) across **five dimensions**:
 |-----------|----------|--------|
 | [**Qc** — Code Quality](./qc/index.md) | Does the workflow produce software that works, performs well, is secure, and follows conventions? | Mature |
 | [**HoR** — Human-off Ratio](./hor/index.md) | How far can the human step back while maintaining quality? | Outlined |
-| [**Exp** — AI Explainability](./exp/index.md) | Can the AI explain its design choices for trust and learning? | Early |
-| [**Stb** — Stability](./stb/index.md) | Are results reproducible across runs, sessions, and model versions? | Early |
-| [**NLE** — Natural Language Engagement](./nle/index.md) | Does the workflow remain effective across languages and cultures? | Early |
+| [**Exp** — AI Explainability](./exp/index.md) | Can the AI explain its design choices for trust and learning? | Complete |
+| [**Stb** — Stability](./stb/index.md) | Are results reproducible across runs, sessions, and model versions? | Complete |
+| [**NLE** — Natural Language Engagement](./nle/index.md) | Does the workflow remain effective across languages and cultures? | Complete |
 
 These dimensions form a **staircase**: Qc is the foundation (nothing matters without quality), HoR is the leverage point (how much can humans let go), and Exp/Stb/NLE ascend toward trust, reproducibility, and global fairness.
 
@@ -123,9 +123,9 @@ The MkDocs site you are reading now is the **guide** — it explains the why, pr
 | SPI Schema | **Available** | Agent-executable evaluation framework |
 | Qc dimension | **Mature** | Full framework, formulas, working paper, sample implementation |
 | HoR dimension | **Outlined** | Concept, measures, and challenges documented |
-| Exp dimension | **Early** | Overview and scaffolding |
-| Stb dimension | **Early** | Overview and scaffolding |
-| NLE dimension | **Early** | Overview and scaffolding |
+| Exp dimension | **Complete** | Rubric, assessment methods, tool ecosystem, worked example |
+| Stb dimension | **Complete** | Protocols, scoring, tool ecosystem, worked example |
+| NLE dimension | **Complete** | Protocols, scoring, tool ecosystem, worked example |
 | Experiments | **Planned** | Formal evaluation and dataset releases |
 
 This is an **open lab notebook**. We document work-in-progress and negative results alongside successes, and we welcome contributions, critiques, and replications.

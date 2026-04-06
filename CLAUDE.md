@@ -21,9 +21,9 @@ Programming is shifting from **authorship** to **orchestration**. SPI provides t
 
 1. **Qc (Code Quality)** — Foundation. Four industrial gates: Correctness, Efficiency, Security, Conformance. Weighted harmonic mean (weakest-gate penalty).
 2. **HoR (Human-off Ratio)** — How far can the human step back? Must be read alongside Qc.
-3. **Exp (AI Explainability)** — Can the AI explain its design choices? Under development.
-4. **Stb (Stability)** — Reproducibility across runs, sessions, model versions. Under development.
-5. **NLE (Natural Language Engagement)** — Cross-lingual robustness and global fairness. Under development.
+3. **Exp (AI Explainability)** — Can the AI explain its design choices? Complete.
+4. **Stb (Stability)** — Reproducibility across runs, sessions, model versions. Complete.
+5. **NLE (Natural Language Engagement)** — Cross-lingual robustness and global fairness. Complete.
 
 **Groupings:** Qc+Stb = industrial foundation; HoR+Exp = academic/philosophical breakthrough; NLE = societal horizon.
 
@@ -73,7 +73,7 @@ Weights adapt by context (industry, education, research, equity) and by AI syste
 - **Available:** SPI Schema (agent-executable evaluation framework)
 - **Mature:** Qc dimension (framework, formulas, working paper, sample implementation)
 - **Outlined:** HoR dimension (metrics, scoring, interpretation, open questions)
-- **Early:** Exp, Stb, NLE (operational scaffolding with tools and protocols defined)
+- **Complete:** Exp, Stb, NLE (rubrics, protocols, tool ecosystems, worked examples)
 - **Planned:** Experiments, datasets, venue submissions
 
 ## Writing & Style Conventions

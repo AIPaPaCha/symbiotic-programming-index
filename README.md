@@ -18,9 +18,9 @@ SPI is distributed as an **idea file** ([`SPI_SCHEMA.md`](./SPI_SCHEMA.md)): han
 |-----------|----------|--------|
 | **Qc** — Code Quality | Does the workflow produce software that works, performs, is secure, and follows conventions? | Mature |
 | **HoR** — Human-off Ratio | How far can the human step back while maintaining quality? | Outlined |
-| **Exp** — AI Explainability | Can the AI explain its design choices for trust and learning? | Early |
-| **Stb** — Stability | Are results reproducible across runs, sessions, and model versions? | Early |
-| **NLE** — Natural Language Engagement | Does the workflow remain effective across languages and cultures? | Early |
+| **Exp** — AI Explainability | Can the AI explain its design choices for trust and learning? | Complete |
+| **Stb** — Stability | Are results reproducible across runs, sessions, and model versions? | Complete |
+| **NLE** — Natural Language Engagement | Does the workflow remain effective across languages and cultures? | Complete |
 
 ## Quick Start
 
